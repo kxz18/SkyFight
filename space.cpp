@@ -95,6 +95,9 @@ void Space::initGame()
 {
     qDebug()<<"entering Space::initGame()";
 
+    planeFactory->clear();
+    bulletFactory->clear();
+    supplyFactory->clear();
     scene->clear();
     rollBG=new RollingBackgroud(scene);
     scene->addItem(player);
@@ -246,9 +249,9 @@ void Space::gameOver(AbstractPlane* player)
     scene->removeItem(player);//can't just clear scene since it will delete the objects instantly
     scene->removeItem(rollBG);
     emit gameFinished(this->player->score(),this->player->ifVictory());//ifVictory() is defined in class PlayerPlane so this-> is necessary
-    planeFactory->clear();
-    bulletFactory->clear();
-    supplyFactory->clear();
+    planeFactory->invisible();
+    bulletFactory->invisible();
+    supplyFactory->invisible();
     rollBG->deleteLater();
 
     qDebug()<<"ending Space::gameOver(AbstractPlane* player)";

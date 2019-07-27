@@ -53,6 +53,12 @@ void PlaneFactory::clear(){
     mEnemyPlanes.clear();
 }
 
+void PlaneFactory::invisible(){
+    foreach(auto it, sEnemyPlanes) it->setVisible(false);
+    foreach(auto it, mEnemyPlanes) it->setVisible(false);
+    foreach(auto it, bossPlanes) it->setVisible(false);
+}
+
 void PlaneFactory::deleteFromList(AbstractPlane* plane){
     if(plane->name()=="sEnemyPlane")
         delTemp<sEnemyPlane>(sEnemyPlanes,plane);

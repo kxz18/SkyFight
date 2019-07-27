@@ -18,6 +18,8 @@ void AbstractPlane::crashed()
 
 void AbstractPlane::crashWithPlane(AbstractPlane* object)
 {
-    object->crashed();
+    if(this->name()=="player_plane"&&object->blood<=1&&this->blood<=1){}//multithread problems can be solved by this
+    else object->crashed();
+
     this->crashed();
 }

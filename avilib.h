@@ -29,6 +29,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 
+#include <QDebug>
+
 //SLM
 #ifdef __CYGWIN__
 #include <sys/types.h>

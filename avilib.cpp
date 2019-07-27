@@ -1072,7 +1072,7 @@ int AVI_close(avi_t *AVI)
 
     /* Even if there happened an error, we first clean up */
 
-    /*close(AVI->fdes);
+    //close(AVI->fdes);
     if (AVI->idx) free(AVI->idx);
     if (AVI->video_index) free(AVI->video_index);
     //FIXME
@@ -1084,7 +1084,8 @@ int AVI_close(avi_t *AVI)
             free(AVI->wave_format_ex[i]);
         if (AVI->track[i].audio_chunks)
             free(AVI->track[i].audio_index);
-    }*/
+    }
+
     free(AVI);
 
     return ret;

@@ -5,6 +5,8 @@
 moc*
 *.autosave
 /record
+/debug
+/release
 /Debug
 /Release
 /executable

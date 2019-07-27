@@ -49,6 +49,12 @@ void BulletFactory::clear(){
     enemyBullet2s.clear();
 }
 
+void BulletFactory::invisible(){
+    foreach(auto it, playerBullets) it->setVisible(false);
+    foreach(auto it, enemyBullet1s) it->setVisible(false);
+    foreach(auto it, enemyBullet2s) it->setVisible(false);
+}
+
 void BulletFactory::deleteFromList(AbstractBullet *bullet)
 {
     if(bullet->name()=="playerBullet") delTemp<PlayerBullet>(playerBullets,bullet);

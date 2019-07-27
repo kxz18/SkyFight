@@ -23,6 +23,11 @@ void SupplyFactory::clear()
     stars.clear();
 }
 
+void SupplyFactory::invisible()
+{
+    foreach(auto it,stars) it->setVisible(false);
+}
+
 void SupplyFactory::deleteFromList(AbstractSupply *supply)
 {
     if(supply->name()=="star") delTemp<Star>(stars,supply);

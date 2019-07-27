@@ -27,6 +27,7 @@ public:
     QList<EnemyBullet1*>* EB1List();                        //return list of enemy's bullet 1
     QList<EnemyBullet2*>* EB2List();                        //return list of enemy's bullet 2
     void clear();
+    void invisible();
 
 private slots:
     PlayerBullet* createPB(QPointF pos);//must know where the player is

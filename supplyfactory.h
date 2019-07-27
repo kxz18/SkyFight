@@ -22,6 +22,7 @@ public:
     void delTemp(QList<T*> &list,AbstractSupply* supply);   //used in deleteFromList
     QList<Star*>* StarList();
     void clear();
+    void invisible();
 
 private slots:
     void fore_createStar(AbstractPlane* plane);//who to drop a star

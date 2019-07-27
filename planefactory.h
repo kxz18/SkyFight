@@ -30,6 +30,7 @@ public:
     QList<mEnemyPlane*>* MEList();
     QList<BossPlane*>* BossList();
     void clear();
+    void invisible();
 
 signals:
     void killEnemy(AbstractPlane *enemy);

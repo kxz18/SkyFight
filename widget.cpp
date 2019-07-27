@@ -11,6 +11,7 @@ Widget::Widget(QWidget *parent) :
     this->setWindowTitle("Sky Fight by kxz");
     this->setMinimumSize(WINDOWWIDTH,WINDOWHEIGHT);
     this->setWindowFlag(Qt::WindowCloseButtonHint,0);
+    this->setWindowIcon(QIcon(icon));
 
     ui->view->setGeometry((width()-VIEWWIDTH)/2,(height()-VIEWHEIGHT)/2,VIEWWIDTH,VIEWHEIGHT);
     Recorder::instance().setWidget(this);

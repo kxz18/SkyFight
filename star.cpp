@@ -21,4 +21,5 @@ void Star::advance(int)
     QPointF cur=this->scenePos();
     cur.ry()+=speed;
     this->setPos(cur);
+    checkCollide();
 }

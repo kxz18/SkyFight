@@ -7,6 +7,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QDir>
+#include <QIcon>
 #include "global.h"
 
 class Replayer : public QDialog
@@ -26,10 +27,7 @@ public:
         this->setGeometry(0,0,VIEWWIDTH+50,VIEWHEIGHT+50); //some margin
         this->setFixedSize(VIEWWIDTH+50,VIEWHEIGHT+50);
         this->setWindowTitle("Replay");
-
-        /*timeLine->setDuration(UPDATEFREQUENCY*allFrames->count());
-        timeLine->setFrameRange(0,allFrames->count());
-        timeLine->setCurveShape(QTimeLine::LinearCurve);*/
+        this->setWindowIcon(QIcon(replayIcon));
 
         view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

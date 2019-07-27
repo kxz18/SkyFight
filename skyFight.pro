@@ -72,7 +72,6 @@ HEADERS += \
         star.h \
         startmenu.h \
         supplyfactory.h \
-        ui_widget.h \
         widget.h
 
 FORMS += \

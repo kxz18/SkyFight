@@ -90,6 +90,8 @@ const QString enemyBullet1Image=":/images/bullets/enemyBullet1.png";
 const QString enemyBullet2Image=":/images/bullets/enemyBullet2.png";
 const QString starImage=":/images/supplies/star.png";
 
+const QString replayIcon=":/images/icon/replay.jpeg";
+const QString icon=":/images/icon/icon.jpg";
 const QString recordFilePath="./record/";
 
 #endif // GLOBAL_H

@@ -1,0 +1,10 @@
+*.o
+*.Debug
+*.Release
+.qmake.stash
+moc*
+*.autosave
+/record
+/Debug
+/Release
+/executable

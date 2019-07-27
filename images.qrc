@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/backgroud/backgroud.jpeg</file>
+        <file>images/backgroud/rollingBackgroud(origin).jpeg</file>
+        <file>images/backgroud/rollingBackgroud.jpg</file>
+        <file>images/backgroud/timg.jpeg</file>
+        <file>images/backgroud/u=2843516367,1048419514&amp;fm=26&amp;gp=0.jpg</file>
+        <file>images/bullets/enemyBullet1.png</file>
+        <file>images/bullets/enemyBullet2.png</file>
+        <file>images/bullets/playerBullet.png</file>
+        <file>images/bullets/u=1285937960,1242245387&amp;fm=26&amp;gp=0.png</file>
+        <file>images/planes/bossPlane.png</file>
+        <file>images/planes/playerPlane.png</file>
+        <file>images/planes/sEnemyPlane.png</file>
+        <file>images/supplies/star.png</file>
+        <file>images/planes/mEnemyPlane.png</file>
+    </qresource>
+</RCC>

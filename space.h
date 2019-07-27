@@ -24,6 +24,7 @@ public:
     virtual ~Space();
     QString getInfo();
     bool ifStarted();
+    void hide();
 
 private:
     QGraphicsScene *scene;

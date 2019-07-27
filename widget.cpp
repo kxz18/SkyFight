@@ -80,14 +80,22 @@ void Widget::closeMenu()
 void Widget::launchFinishMenu(int score,bool finished)
 {
     qDebug()<<"entering Widget::launchFinishMenu(int score,bool finished)";
+    ui->view->hide();
 
-    StartMenu *menu=new StartMenu(false,score,finished);
-    this->setLayout(menu);
-    connect(menu,SIGNAL(startNewGame()),ui->view,SLOT(initGame()));
-    connect(menu,SIGNAL(continueGame()),ui->view,SLOT(on_go_on()));
-    connect(menu,SIGNAL(replayVideo()),ui->view,SLOT(on_replay()));
-    connect(menu,SIGNAL(quitGame()),this,SLOT(on_close()));
-    connect(menu,SIGNAL(keyPress()),this,SLOT(closeMenu()));
+    try {
+       StartMenu *menu=new StartMenu(false,score,finished);
+       this->setLayout(menu);
+       connect(menu,SIGNAL(startNewGame()),ui->view,SLOT(initGame()));
+       connect(menu,SIGNAL(continueGame()),ui->view,SLOT(on_go_on()));
+       connect(menu,SIGNAL(replayVideo()),ui->view,SLOT(on_replay()));
+       connect(menu,SIGNAL(quitGame()),this,SLOT(on_close()));
+       connect(menu,SIGNAL(keyPress()),this,SLOT(closeMenu()));
+
+    } catch (const std::bad_alloc& e ) {
+        Q_UNUSED(e)
+        qDebug()<<"operator new failed";
+    }
+
 
     qDebug()<<"ending Widget::launchFinishMenu(int score,bool finished)";
 }

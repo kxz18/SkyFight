@@ -91,6 +91,13 @@ bool Space::ifStarted()
     return hasStarted;
 }
 
+void Space::hide()
+{
+    planeFactory->invisible();
+    bulletFactory->invisible();
+    supplyFactory->invisible();
+}
+
 void Space::initGame()
 {
     qDebug()<<"entering Space::initGame()";
@@ -249,9 +256,9 @@ void Space::gameOver(AbstractPlane* player)
     scene->removeItem(player);//can't just clear scene since it will delete the objects instantly
     scene->removeItem(rollBG);
     emit gameFinished(this->player->score(),this->player->ifVictory());//ifVictory() is defined in class PlayerPlane so this-> is necessary
-    planeFactory->invisible();
-    bulletFactory->invisible();
-    supplyFactory->invisible();
+    //planeFactory->invisible();
+    //bulletFactory->invisible();
+    //upplyFactory->invisible();
     rollBG->deleteLater();
 
     qDebug()<<"ending Space::gameOver(AbstractPlane* player)";

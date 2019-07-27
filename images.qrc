@@ -14,7 +14,7 @@
         <file>images/planes/sEnemyPlane.png</file>
         <file>images/supplies/star.png</file>
         <file>images/planes/mEnemyPlane.png</file>
-        <file>images/icon/icon.jpg</file>
-        <file>images/icon/replay.jpeg</file>
+        <file>images/icon/replay.png</file>
+        <file>images/icon/icon.png</file>
     </qresource>
 </RCC>

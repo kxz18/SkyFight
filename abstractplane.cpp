@@ -7,7 +7,7 @@ AbstractPlane::~AbstractPlane(){}
 
 void AbstractPlane::crashed()
 {
-    qDebug()<<this->name()<<"crashed";
+    //qDebug()<<this->name()<<"crashed";
 
     blood--;
     emit bloodChange(blood);

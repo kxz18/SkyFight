@@ -6,6 +6,7 @@
 #include "bossplane.h"
 #include "global.h"
 #include "randomer.h"
+#include "playerplane.h"
 #include "bulletfactory.h"
 
 class PlaneFactory : public QObject
@@ -17,18 +18,22 @@ protected:
     QList<sEnemyPlane*> sEnemyPlanes;
     QList<mEnemyPlane*> mEnemyPlanes;
     QList<BossPlane*> bossPlanes;
+    PlayerPlane *player;
     int frames,level;
 
 public:
     PlaneFactory(QGraphicsScene *scene);
     ~PlaneFactory();
     void setLevel(int lev);
+    void setPlayer(PlayerPlane *plyr);
     void deleteFromList(AbstractPlane *plane);
     template<class T>
     void delTemp(QList<T*> &list,AbstractPlane *plane);
     QList<sEnemyPlane*>* SEList();
     QList<mEnemyPlane*>* MEList();
     QList<BossPlane*>* BossList();
+    QList<QPointF> allPos(const QString &type);
+    bool ifVictory();
     void clear();
     void invisible();
 

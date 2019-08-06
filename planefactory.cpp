@@ -2,7 +2,7 @@
 
 PlaneFactory::PlaneFactory(QGraphicsScene *scn) :
     scene(scn),sEnemyPlanes(),mEnemyPlanes(),bossPlanes(),
-    frames(0),level(1){}
+    player(nullptr),frames(0),level(1){}
 
 PlaneFactory::~PlaneFactory()//scene is not in the control of plane factory
 {
@@ -14,6 +14,11 @@ PlaneFactory::~PlaneFactory()//scene is not in the control of plane factory
 void PlaneFactory::setLevel(int lev)
 {
     level=lev;
+}
+
+void PlaneFactory::setPlayer(PlayerPlane *plyr)
+{
+    player=plyr;
 }
 
 QList<sEnemyPlane*>* PlaneFactory::SEList()
@@ -28,6 +33,29 @@ QList<mEnemyPlane*>* PlaneFactory::MEList(){
 QList<BossPlane*>* PlaneFactory::BossList()
 {
     return &(this->bossPlanes);
+}
+
+QList<QPointF> PlaneFactory::allPos(const QString &type)
+{
+    QList<QPointF> tmp;
+    if(type=="SEP"){
+        foreach(auto it,sEnemyPlanes)
+            tmp.append(it->scenePos());
+    }else if(type=="MEP"){
+        foreach(auto it,mEnemyPlanes)
+            tmp.append(it->scenePos());
+    }else if(type=="BP"){
+        foreach(auto it,bossPlanes)
+            tmp.append(it->scenePos());
+    }else if(type=="PP"){
+        tmp.append(player->scenePos());
+    }
+    return tmp;
+}
+
+bool PlaneFactory::ifVictory()
+{
+    return player->ifVictory();
 }
 
 void PlaneFactory::clear(){

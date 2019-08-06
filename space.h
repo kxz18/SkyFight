@@ -13,6 +13,7 @@
 #include "bulletfactory.h"
 #include "supplyfactory.h"
 #include "recorder.h"
+#include "recorder_new.h"
 #include "api.h"
 #include "if_ai.h"
 
@@ -24,7 +25,7 @@ public:
     virtual ~Space();
     QString getInfo();
     bool ifStarted();
-    void hide();
+    void hide();//set all items on the scene invisible
 
 private:
     QGraphicsScene *scene;
@@ -35,7 +36,7 @@ private:
     SupplyFactory *supplyFactory;
     RollingBackgroud *rollBG;
     bool hasStarted,running,victory;//check if it is paused/check if the boss is defeated
-    QList<int> keys;    //valid keys
+    //QList<int> keys;    //valid keys
 
     void keyPressEvent(QKeyEvent *event);//just to send a signal
     void keyReleaseEvent(QKeyEvent *event);

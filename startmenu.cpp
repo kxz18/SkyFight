@@ -36,8 +36,12 @@ StartMenu::StartMenu(bool ifContinue,int score,bool finished) :
     btnReplay->setText("Replay");
     btnReplay->setFixedSize(w,h);
 
+    btnReplay->setEnabled(false);
     QDir dir(recordFilePath);
-    if(!dir.exists("record.avi")) btnReplay->setEnabled(false);
+    foreach (auto it, dir.entryInfoList()) {
+        if(it.suffix()=="record") btnReplay->setEnabled(true);
+    }
+    //if(!dir.exists("record.avi")) btnReplay->setEnabled(false);
 
     this->addStretch();
     if(score!=-1){

@@ -13,6 +13,16 @@ QList<Star*>* SupplyFactory::StarList()
     return &(this->stars);
 }
 
+QList<QPointF> SupplyFactory::allPos(const QString &type)
+{
+    QList<QPointF> tmp;
+    if(type=="Star"){
+        foreach(auto it,stars)
+            tmp.append(it->scenePos());
+    }
+    return tmp;
+}
+
 void SupplyFactory::clear()
 {
     qDebug()<<"stars"<<stars.count();

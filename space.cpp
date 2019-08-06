@@ -2,10 +2,10 @@
 
 Space::Space(QWidget *parent) : QGraphicsView(parent),hasStarted(false),running(false),victory(false)
 {
-    keys=
+    /*keys=
     {
         Qt::Key_W, Qt::Key_S, Qt::Key_A, Qt::Key_D, Qt::Key_J, Qt::Key_P
-    };
+    };*/
 
     scene=new QGraphicsScene(QRectF(0,0,SCENEWIDTH,SCENEHEIGHT));//cordination and bounding rectangle of the scene
 
@@ -25,11 +25,15 @@ Space::Space(QWidget *parent) : QGraphicsView(parent),hasStarted(false),running(
     planeFactory=new PlaneFactory(scene);
     bulletFactory=new BulletFactory(scene);
     supplyFactory=new SupplyFactory(scene);
+    recorder_new::instance().setPlaneFactory(planeFactory);
+    recorder_new::instance().setBulletFactory(bulletFactory);
+    recorder_new::instance().setSupplyFactory(supplyFactory);
     timer=new QTimer;//initialize timer but not start
 
     player=new PlayerPlane(scene);
     player->setZValue(10);
     scene->removeItem(player);//at this time player shouldn't be on the screen
+    planeFactory->setPlayer(player);
 
     connect(player,SIGNAL(shoot(QPointF)),bulletFactory,SLOT(createPB(QPointF)));//remember it must be here because from here player is initialized
     connect(planeFactory,SIGNAL(killEnemy(AbstractPlane*)),player,SLOT(getScore(AbstractPlane*)));
@@ -53,7 +57,8 @@ Space::Space(QWidget *parent) : QGraphicsView(parent),hasStarted(false),running(
     connect(timer,SIGNAL(timeout()),&API::game(),SLOT(AI_control()));
 #endif
     connect(timer,SIGNAL(timeout()),scene,SLOT(advance()));
-    connect(timer,SIGNAL(timeout()),&(Recorder::instance()),SLOT(takeCapture()));
+    //connect(timer,SIGNAL(timeout()),&(Recorder::instance()),SLOT(takeCapture()));
+    connect(timer,SIGNAL(timeout()),&recorder_new::instance(),SLOT(takeCapture()));
     connect(timer,SIGNAL(timeout()),planeFactory,SLOT(createEnemy()));
 }
 
@@ -117,7 +122,8 @@ void Space::initGame()
     hasStarted=true;
     running=true;
 
-    Recorder::instance().startRecord(recordFilePath);
+    //Recorder::instance().startRecord(recordFilePath);
+    recorder_new::instance().startRecord(recordFilePath);
 
 #ifdef AI
     API::game().setup(this->player,this->planeFactory,
@@ -198,7 +204,11 @@ void Space::on_go_on()
 
 void Space::on_replay()
 {
-    Recorder::instance().replay();
+    QString fileName=QFileDialog::getOpenFileName
+                     (this,"please choose",recordFilePath,"record file(*.record)");
+    recorder_new::instance().setFilePath(fileName);
+    //Recorder::instance().replay();
+    recorder_new::instance().replay();
 }
 
 void Space::on_keyPress(int key)
@@ -250,7 +260,8 @@ void Space::gameOver(AbstractPlane* player)
 
     timer->stop();
     planeFactory->setLevel(1);//in case it create another boss plane
-    Recorder::instance().finishRecord();
+    //Recorder::instance().finishRecord();
+    recorder_new::instance().finishRecord();
     hasStarted=false;
     running=false;
     scene->removeItem(player);//can't just clear scene since it will delete the objects instantly

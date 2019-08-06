@@ -26,6 +26,7 @@ public:
     QList<PlayerBullet*>* PBList();                         //return list of player's bullet
     QList<EnemyBullet1*>* EB1List();                        //return list of enemy's bullet 1
     QList<EnemyBullet2*>* EB2List();                        //return list of enemy's bullet 2
+    QList<QPointF> allPos(const QString &type);
     void clear();
     void invisible();
 

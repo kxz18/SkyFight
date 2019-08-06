@@ -21,6 +21,7 @@ public:
     template<class T>
     void delTemp(QList<T*> &list,AbstractSupply* supply);   //used in deleteFromList
     QList<Star*>* StarList();
+    QList<QPointF> allPos(const QString &type);
     void clear();
     void invisible();
 

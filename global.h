@@ -94,4 +94,23 @@ const QString replayIcon=":/images/icon/replay.png";
 const QString icon=":/images/icon/icon.png";
 const QString recordFilePath="./record/";
 
+const QList<QString> planeKeyWords=
+{
+  "PP", "SEP", "MEP", "BP"
+};
+
+const QList<QString> bulletKeyWords=
+{
+  "PB", "EB1", "EB2"
+};
+
+const QList<QString> supplyKeyWords=
+{
+  "Star"
+};
+
+const QList<int> keys=
+{
+    Qt::Key_W, Qt::Key_S, Qt::Key_A, Qt::Key_D, Qt::Key_J, Qt::Key_P
+};
 #endif // GLOBAL_H

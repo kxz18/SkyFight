@@ -88,6 +88,7 @@ public:
         format_c=ba.data();
 
         AVI_set_video(this->file, VIEWWIDTH, VIEWHEIGHT, 1000/UPDATEFREQUENCY, format_c);//设置视频文件的分辨率， 多少帧一秒， 编码方式
+
     }
     void finishRecord(){
         AVI_close(file);//关闭文件

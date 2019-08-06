@@ -25,6 +25,22 @@ QList<EnemyBullet2*>* BulletFactory::EB2List()
     return &(this->enemyBullet2s);
 }
 
+QList<QPointF> BulletFactory::allPos(const QString &type)
+{
+    QList<QPointF> tmp;
+    if(type=="PB"){
+        foreach(auto it,playerBullets)
+            tmp.append(it->scenePos());
+    }else if(type=="EB1"){
+        foreach(auto it,enemyBullet1s)
+            tmp.append(it->scenePos());
+    }else if(type=="EB2"){
+        foreach(auto it,enemyBullet2s)
+            tmp.append(it->scenePos());
+    }
+    return tmp;
+}
+
 void BulletFactory::clear(){
 
     qDebug()<<"playerBullets"<<playerBullets.count();

@@ -8,6 +8,16 @@ PlayerPlane::PlayerPlane(QGraphicsScene *scene) :
     qDebug("Player plane created @ %p",static_cast<void*>(this));
 }
 
+PlayerPlane::PlayerPlane(QGraphicsScene *scene,QPointF pos) :
+    AbstractPlane(PLAYERPLANEWIDTH,PLAYERPLANEHEIGHT,PLAYERPLANESPEED,
+                  QPointF(scene->width()/2-PLAYERPLANEWIDTH/2,scene->height()-PLAYERPLANEHEIGHT),
+                  QPixmap(playerPlaneImage),scene,PLAYERPLANEBLOOD),//the origin is on the left-top
+    w(false),a(false),s(false),d(false),shooting(false),victory(false),scores(0),level(1)
+{
+    qDebug("Player plane created @ %p",static_cast<void*>(this));
+    this->setPos(pos);
+}
+
 PlayerPlane::~PlayerPlane(){
     qDebug("player plane deleted @ %p",static_cast<void*>(this));
 }

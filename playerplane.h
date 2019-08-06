@@ -15,6 +15,7 @@ protected:
     int scores,level;          //frames means frames endured
 public:
     PlayerPlane(QGraphicsScene *scene);
+    PlayerPlane(QGraphicsScene *scene,QPointF pos);
     virtual ~PlayerPlane() override;
     virtual QString name() override;
     virtual int score() override;

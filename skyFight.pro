@@ -65,7 +65,9 @@ HEADERS += \
         playerplane.h \
         randomer.h \
         recorder.h \
+        recorder_new.h \
         replayer.h \
+        replayer_new.h \
         rollingbackgroud.h \
         senemyplane.h \
         space.h \

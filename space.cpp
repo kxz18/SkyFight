@@ -208,7 +208,7 @@ void Space::on_replay()
                      (this,"please choose",recordFilePath,"record file(*.record)");
     recorder_new::instance().setFilePath(fileName);
     //Recorder::instance().replay();
-    recorder_new::instance().replay();
+    if(fileName!="") recorder_new::instance().replay();
 }
 
 void Space::on_keyPress(int key)

@@ -52,7 +52,6 @@ HEADERS += \
         abstractplane.h \
         abstractsupply.h \
         api.h \
-        avilib.h \
         bossplane.h \
         bulletfactory.h \
         enemybullet1.h \
@@ -64,9 +63,7 @@ HEADERS += \
         playerbullet.h \
         playerplane.h \
         randomer.h \
-        recorder.h \
         recorder_new.h \
-        replayer.h \
         replayer_new.h \
         rollingbackgroud.h \
         senemyplane.h \

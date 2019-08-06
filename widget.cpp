@@ -14,8 +14,8 @@ Widget::Widget(QWidget *parent) :
     this->setWindowIcon(QIcon(icon));
 
     ui->view->setGeometry((width()-VIEWWIDTH)/2,(height()-VIEWHEIGHT)/2,VIEWWIDTH,VIEWHEIGHT);
-    Recorder::instance().setWidget(this);
-    Recorder::instance().setRect((width()-VIEWWIDTH)/2,(height()-VIEWHEIGHT)/2,VIEWWIDTH,VIEWHEIGHT);
+    //Recorder::instance().setWidget(this);
+    //Recorder::instance().setRect((width()-VIEWWIDTH)/2,(height()-VIEWHEIGHT)/2,VIEWWIDTH,VIEWHEIGHT);
 
     ui->lab_score->setGeometry((width()-VIEWWIDTH)/2,(height()+VIEWHEIGHT)/2,LABWIDTH,LABHEIGHT);
     ui->lab_score->setText("Score: 0");
@@ -69,7 +69,7 @@ void Widget::resizeEvent(QResizeEvent *event)
     ui->info->setGeometry((width()-VIEWWIDTH)/2-INFOWIDTH,(height()-VIEWHEIGHT)/2,INFOWIDTH,INFOHEIGHT);
     ui->lab_score->setGeometry((width()-VIEWWIDTH)/2,(height()+VIEWHEIGHT)/2,LABWIDTH,LABHEIGHT);
     ui->lab_blood->setGeometry((width()-VIEWWIDTH)/2+LABWIDTH,(height()+VIEWHEIGHT)/2,LABWIDTH,LABHEIGHT);
-    Recorder::instance().setRect((width()-VIEWWIDTH)/2,(height()-VIEWHEIGHT)/2,VIEWWIDTH,VIEWHEIGHT);
+    //Recorder::instance().setRect((width()-VIEWWIDTH)/2,(height()-VIEWHEIGHT)/2,VIEWWIDTH,VIEWHEIGHT);
 }
 
 void Widget::closeMenu()
@@ -123,7 +123,7 @@ void Widget::on_close()
     qDebug()<<"entering Widget::on_close()";
 
     //QDir dir(recordFilePath);
-    if(ui->view->ifStarted()==true){//clean captures and failed replays
+    /*if(ui->view->ifStarted()==true){//clean captures and failed replays
         QDir dir(recordFilePath);
         foreach(QFileInfo it,dir.entryInfoList()){
             if(it.suffix()=="avi")
@@ -134,7 +134,7 @@ void Widget::on_close()
             if(it.suffix()=="jpg")
                 dir.remove(it.fileName());
         }
-    }
+    }*/
     this->close();
 
     qDebug()<<"ending Widget::on_close()";

@@ -13,17 +13,16 @@
 class recorder_new : public QObject
 {
     Q_OBJECT
-protected://#include "space.h"
+protected:
     int frames;
     QString filePath;//record files' directory
     std::fstream file;
-    QHash<QString,QHash<int,QList<QPointF>>> allFrames;//store all the image
     replayer_new *replayer;//media player
     PlaneFactory *planeFactory;
     BulletFactory *bulletFactory;
     SupplyFactory *supplyFactory;
 
-    recorder_new() : frames(0),filePath(recordFilePath),allFrames(),
+    recorder_new() : frames(0),filePath(recordFilePath),
                      planeFactory(nullptr),bulletFactory(nullptr),
                      supplyFactory(nullptr)
     {
@@ -65,13 +64,15 @@ public:
 
     void startRecord(QString file_path){
         this->filePath=file_path;
-        allFrames.clear();
         frames=0;
 
         QDir dir;
         if(!dir.exists(file_path)) dir.mkdir(file_path);//create a record path
 
-        QString fileName=filePath+QTime::currentTime().toString()+".record";
+        QDate date=QDate::currentDate();
+        QString fileName=filePath+QString::asprintf("%d-%d-%d",date.year(),date.month(),date.day())+
+                "@"+QTime::currentTime().toString()+".record";
+        fileName.replace(':','-');
         file.open(fileName.toStdString(),std::ios::out);
     }
     void finishRecord(){

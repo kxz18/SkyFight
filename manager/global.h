@@ -25,7 +25,7 @@
 #define BGMOVESPEED 0.5*SCALE
 
 //update frequency (every ** ms)
-#define UPDATEFREQUENCY 50
+#define UPDATEFREQUENCY 25
 
 //parameters of player plane
 #define PLAYERPLANEWIDTH 50*SCALE
@@ -65,19 +65,19 @@
 #define STARBASICDROP 0.4 //basic drop possibility
 
 //frequency of bullets (one per *** ms)
-#define PBFREQUENCY 1000    //player's bullets
-#define SEBFREQUENCY 5000   //small enemy plane bullets (1)
-#define MEBFREQUENCY 3000   //middle enemy plane bullets (2)
-#define BEB1FREQUENCY 1500  //boss enemy bullet 1
-#define BEB2FREQUENCY 2500  //boss enemy bullet 2
+#define PBFREQUENCY 500    //player's bullets
+#define SEBFREQUENCY 2500   //small enemy plane bullets (1)
+#define MEBFREQUENCY 1500   //middle enemy plane bullets (2)
+#define BEB1FREQUENCY 750  //boss enemy bullet 1
+#define BEB2FREQUENCY 1250  //boss enemy bullet 2
 
 //score how many to reach the next difficulty level
 #define DIFFICULTYUP 10
 //at which level the boss will come
 #define BOSSCOME 4
 //under base difficulty level, every 5 second(5000 ms) a small enenmy plane is created
-#define SETIMEGAUGE 5000
-#define METIMEGAUGE 10000
+#define SETIMEGAUGE 2500
+#define METIMEGAUGE 5000
 
 const QString backgroud=":/images/backgroud/backgroud.jpeg";
 const QString rollingBackgroud=":/images/backgroud/rollingBackgroud.jpg";

@@ -25,52 +25,55 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        abstractflyer.cpp \
-        abstractplane.cpp \
-        api.cpp \
-        avilib.cpp \
-        bossplane.cpp \
-        bulletfactory.cpp \
-        enemybullet1.cpp \
-        enemybullet2.cpp \
+        api/api.cpp \
+        api/yourcontrol.cpp \
+        flyer/abstractflyer.cpp \
+        flyer/abstractplane.cpp \
+        flyer/bossplane.cpp \
+        flyer/enemybullet1.cpp \
+        flyer/enemybullet2.cpp \
+        flyer/menemyplane.cpp \
+        flyer/playerbullet.cpp \
+        flyer/playerplane.cpp \
+        flyer/senemyplane.cpp \
+        flyer/star.cpp \
         main.cpp \
-        menemyplane.cpp \
-        planefactory.cpp \
-        playerbullet.cpp \
-        playerplane.cpp \
-        senemyplane.cpp \
-        space.cpp \
-        star.cpp \
-        startmenu.cpp \
-        supplyfactory.cpp \
-        widget.cpp \
-        yourcontrol.cpp
+        manager/bulletfactory.cpp \
+        manager/planefactory.cpp \
+        manager/space.cpp \
+        manager/startmenu.cpp \
+        manager/supplyfactory.cpp \ 
+        others/avilib.cpp \
+        widget.cpp
 
 HEADERS += \
-        abstractbullet.h \
-        abstractflyer.h \
-        abstractplane.h \
-        abstractsupply.h \
-        api.h \
-        bossplane.h \
-        bulletfactory.h \
-        enemybullet1.h \
-        enemybullet2.h \
-        global.h \
-        if_ai.h \
-        menemyplane.h \
-        planefactory.h \
-        playerbullet.h \
-        playerplane.h \
-        randomer.h \
-        recorder_new.h \
-        replayer_new.h \
-        rollingbackgroud.h \
-        senemyplane.h \
-        space.h \
-        star.h \
-        startmenu.h \
-        supplyfactory.h \
+        api/api.h \
+        api/if_ai.h \
+        flyer/abstractbullet.h \
+        flyer/abstractflyer.h \
+        flyer/abstractplane.h \
+        flyer/abstractsupply.h \
+        flyer/bossplane.h \
+        flyer/enemybullet1.h \
+        flyer/enemybullet2.h \
+        flyer/menemyplane.h \
+        flyer/playerbullet.h \
+        flyer/playerplane.h \
+        flyer/senemyplane.h \
+        flyer/star.h \
+        manager/bulletfactory.h \
+        manager/global.h \
+        manager/planefactory.h \
+        manager/space.h \
+        manager/startmenu.h \
+        manager/supplyfactory.h \
+        others/avilib.h \
+        others/randomer.h \
+        others/recorder.h \
+        others/recorder_new.h \
+        others/replayer.h \
+        others/replayer_new.h \
+        others/rollingbackgroud.h \
         widget.h
 
 FORMS += \
@@ -83,3 +86,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     images.qrc
+
+INCLUDEPATH += \
+              api/\
+              flyer/\
+              manager/\
+              others/

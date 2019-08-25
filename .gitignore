@@ -4,6 +4,7 @@
 .qmake.stash
 moc*
 *.autosave
+*.pro.user*
 /record
 /debug
 /release

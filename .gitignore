@@ -5,6 +5,7 @@
 moc*
 *.autosave
 *.pro.user*
+*.zip
 /record
 /debug
 /release

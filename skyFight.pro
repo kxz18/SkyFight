@@ -69,6 +69,7 @@ HEADERS += \
         manager/supplyfactory.h \
         others/avilib.h \
         others/randomer.h \
+        others/randomer_copy.h \
         others/recorder.h \
         others/recorder_new.h \
         others/replayer.h \

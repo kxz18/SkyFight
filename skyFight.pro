@@ -43,7 +43,6 @@ SOURCES += \
         manager/space.cpp \
         manager/startmenu.cpp \
         manager/supplyfactory.cpp \ 
-        others/avilib.cpp \
         widget.cpp
 
 HEADERS += \
@@ -67,12 +66,9 @@ HEADERS += \
         manager/space.h \
         manager/startmenu.h \
         manager/supplyfactory.h \
-        others/avilib.h \
         others/randomer.h \
         others/randomer_copy.h \
-        others/recorder.h \
         others/recorder_new.h \
-        others/replayer.h \
         others/replayer_new.h \
         others/rollingbackgroud.h \
         widget.h

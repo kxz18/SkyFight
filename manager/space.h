@@ -12,7 +12,7 @@
 #include "planefactory.h"
 #include "bulletfactory.h"
 #include "supplyfactory.h"
-#include "recorder.h"
+//#include "recorder.h"
 #include "recorder_new.h"
 #include "api.h"
 #include "if_ai.h"

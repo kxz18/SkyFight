@@ -78,7 +78,6 @@ public:
     ~replayer_new(){
         delete timer;
         delete view;
-        delete scene;
         delete text;
     }
 

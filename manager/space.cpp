@@ -63,8 +63,6 @@ Space::Space(QWidget *parent) : QGraphicsView(parent),hasStarted(false),running(
 }
 
 Space::~Space(){
-    delete scene;
-    delete rollBG;
     delete timer;
     delete player;
     delete planeFactory;
